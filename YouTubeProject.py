@@ -10,7 +10,6 @@ response = request.execute()
 #note: my sql doesnt work with nested dictionaries that is why you where getting so many errors.
 selecteddata = response['items'][0]['statistics']
 print(selecteddata)
-sleecteddata['items'][0]['statistics']['videocount'] = 500
 df = pd.DataFrame.from_dict([selecteddata])
 print(df)
 engine = db.create_engine('sqlite:///SEOYTDatabase.db')
