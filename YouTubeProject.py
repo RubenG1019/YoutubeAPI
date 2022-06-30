@@ -3,6 +3,14 @@ import pandas as pd
 import sqlalchemy as db
 
 url = 'https://www.googleapis.com/youtube/v3/channels'
+def getResponse():
+    youtube = build('youtube', 'v3', developerKey = 'AIzaSyCKaLfaVA-hOcZXx1dnrPdGaB1nKCe0vOE')
+    request = youtube.channels().list(part = 'Statistics', id = 'UCcA2BAZFc6RsG0D6zzLAJ8Q')
+    response = request.execute()
+    selecteddata = response['items'][0]['statistics']
+    return selecteddata
+
+
 
 youtube = build('youtube', 'v3', developerKey = 'AIzaSyCKaLfaVA-hOcZXx1dnrPdGaB1nKCe0vOE')
 request = youtube.channels().list(part = 'Statistics', id = 'UCcA2BAZFc6RsG0D6zzLAJ8Q')
